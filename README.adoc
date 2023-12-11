@@ -34,6 +34,11 @@ Feature: Is it Friday yet?
       | Friday         | TGIF   |
       | anything else! | Nope   |
 
+Capture d'écran de l'exécution des tests avec succès : 
+
+image::https://github.com/IUT-Blagnac/r5-a-08-qualdev-nicolaspoda/blob/main/tests_qui_passent_2.png[]
+
+
 
 
 
