@@ -85,6 +85,8 @@ public class Order {
 
 Capture d'écran de l'exécutution des tests avec succès :
 
+image::https://github.com/IUT-Blagnac/r5-a-08-qualdev-nicolaspoda/blob/main/tp2_test_qui_passent.png[]
+
 
 
 
