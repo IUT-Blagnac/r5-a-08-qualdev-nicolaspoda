@@ -20,7 +20,11 @@ public void today_is_sunday() {
 .Exemple d'image insérée en asciidoc
 image::artifacts-r303.svg[width=80%]
 
-Contenu du fichier is_it_friday_yet.feature
+Contenu du fichier is_it_friday_yet.feature :
+
+
+[source,gherkin]
+----
 Feature: Is it Friday yet?
   Everybody wants to know when it's Friday
   Scenario Outline: Check if it's Friday
@@ -33,6 +37,10 @@ Feature: Is it Friday yet?
       | Sunday         | Nope   |
       | Friday         | TGIF   |
       | anything else! | Nope   |
+----
+
+
+
 
 Capture d'écran de l'exécution des tests avec succès : 
 
@@ -43,3 +51,41 @@ image::https://github.com/IUT-Blagnac/r5-a-08-qualdev-nicolaspoda/blob/main/test
 
 
 == TP2...
+
+Cotenu du fichier Order.java
+
+[source,java]
+----
+public class Order {
+    private String owner;
+    private String target;
+    private List<String> cocktails;
+
+    public Order() {
+        this.cocktails = new ArrayList<>();
+    }
+
+    public void declareOwner(String owner) {
+        this.owner = owner;
+    }
+
+    public void declareTarget(String target) {
+        this.target = target;
+    }
+
+    public void addCocktail(String cocktail) {
+        this.cocktails.add(cocktail);
+    }
+
+    public List<String> getCocktails() {
+        return cocktails;
+    }
+}
+----
+
+Capture d'écran de l'exécutution des tests avec succès :
+
+
+
+
+
