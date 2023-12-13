@@ -52,7 +52,7 @@ image::https://github.com/IUT-Blagnac/r5-a-08-qualdev-nicolaspoda/blob/main/test
 
 == TP2...
 
-Cotenu du fichier Order.java
+Contenu du fichier Order.java
 
 [source,java]
 ----
