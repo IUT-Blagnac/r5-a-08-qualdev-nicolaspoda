@@ -1,3 +1,4 @@
+[![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-718a45dd9cf7e7f842a935f5ebbe5719a5e09af4491e668f4dbf3b35d5cca122.svg)](https://classroom.github.com/online_ide?assignment_repo_id=13207866&assignment_repo_type=AssignmentRepo)
 = R5.A.08 -- Dépôt pour les TPs
 :icons: font
 :MoSCoW: https://fr.wikipedia.org/wiki/M%C3%A9thode_MoSCoW[MoSCoW]
@@ -19,4 +20,131 @@ public void today_is_sunday() {
 .Exemple d'image insérée en asciidoc
 image::artifacts-r303.svg[width=80%]
 
+Contenu du fichier is_it_friday_yet.feature :
+
+
+[source,gherkin]
+----
+Feature: Is it Friday yet?
+  Everybody wants to know when it's Friday
+  Scenario Outline: Check if it's Friday
+    Given today is <day>
+    When I ask whether it's Friday yet
+    Then I should be told "<answer>"
+
+    Examples:
+      | day            | answer |
+      | Sunday         | Nope   |
+      | Friday         | TGIF   |
+      | anything else! | Nope   |
+----
+
+
+
+
+Capture d'écran de l'exécution des tests avec succès : 
+
+image::https://github.com/IUT-Blagnac/r5-a-08-qualdev-nicolaspoda/blob/main/tests_qui_passent_2.png[]
+
+
+
+
+
 == TP2...
+
+Contenu du fichier Order.java
+
+[source,java]
+----
+public class Order {
+    private String owner;
+    private String target;
+    private List<String> cocktails;
+
+    public Order() {
+        this.cocktails = new ArrayList<>();
+    }
+
+    public void declareOwner(String owner) {
+        this.owner = owner;
+    }
+
+    public void declareTarget(String target) {
+        this.target = target;
+    }
+
+    public void addCocktail(String cocktail) {
+        this.cocktails.add(cocktail);
+    }
+
+    public List<String> getCocktails() {
+        return cocktails;
+    }
+}
+----
+
+Capture d'écran de l'exécutution des tests avec succès :
+
+image::https://github.com/IUT-Blagnac/r5-a-08-qualdev-nicolaspoda/blob/main/tp2_test_qui_passent.png[]
+
+== TP3
+
+L'objectif du scénario créé est en lien avec la SAE Koh-Lanta. Dans notre application, une page "notes" est réservée aux professeurs. Ce code permet de vérifier le rôle de l'utilisateur afin qu'il puisse accéder ou non à la page.
+
+Contenu du fichier tp3.feature : 
+
+[source,gherkin]
+----
+Feature: Gestion d'une page de notes réservée aux professeurs
+
+  Scenario: Un utilisateur veut accéder à la page de notes
+    Given un tableau de bord
+    When l'utilisateur clique sur la page "notes" dans le tableau de bord
+    Then l'utilisateur accède à la page s'il est professeur et n'y accède pas s'il ne l'est pas
+----
+
+Contenu de l'implémentation des tests : 
+
+[source,java]
+----
+public class StepDefinitions {
+
+    private boolean isUserProfessor;
+    private boolean userAccessedPage;
+
+    @Given("un tableau de bord")
+    public void unTableauDeBord() {
+    }
+
+    @When("l'utilisateur clique sur la page {string} dans le tableau de bord")
+    public void utilisateurCliqueSurPageDansTableauDeBord(String page) {
+        if (page.equals("notes")) {
+            isUserProfessor = true; 
+        }
+    }
+
+    @Then("l'utilisateur accède à la page s'il est professeur et n'y accède pas s'il ne l'est pas")
+    public void utilisateurAccedeOuPasALaPage() {
+        if (isUserProfessor) {
+            userAccessedPage = true;
+        }
+        assertTrue(userAccessedPage); 
+    }
+}
+----
+
+Capture d'écran de l'exécution des tests avec succès : 
+
+image::https://github.com/IUT-Blagnac/r5-a-08-qualdev-nicolaspoda/blob/main/tp3_tests_qui_passent.png[]
+
+
+
+
+== TP4
+
+Lien vers la documentation cukedoctor des scénarios de "hellocucumber" : https://htmlpreview.github.io/?https://github.com/IUT-Blagnac/r5-a-08-qualdev-nicolaspoda/blob/main/documentation.html
+
+
+
+
+
