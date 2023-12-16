@@ -87,6 +87,10 @@ Capture d'écran de l'exécutution des tests avec succès :
 
 image::https://github.com/IUT-Blagnac/r5-a-08-qualdev-nicolaspoda/blob/main/tp2_test_qui_passent.png[]
 
+== TP4
+
+Lien vers la documentation cukedoctor des scénarios de "hellocucumber" : https://htmlpreview.github.io/?https://github.com/IUT-Blagnac/r5-a-08-qualdev-nicolaspoda/blob/main/documentation.html
+
 
 
 
