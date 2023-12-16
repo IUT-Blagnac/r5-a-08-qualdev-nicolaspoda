@@ -87,6 +87,59 @@ Capture d'écran de l'exécutution des tests avec succès :
 
 image::https://github.com/IUT-Blagnac/r5-a-08-qualdev-nicolaspoda/blob/main/tp2_test_qui_passent.png[]
 
+== TP3
+
+L'objectif du scénario créé est en lien avec la SAE Koh-Lanta. Dans notre application, une page "notes" est réservée aux professeurs. Ce code permet de vérifier le rôle de l'utilisateur afin qu'il puisse accéder ou non à la page.
+
+Contenu du fichier tp3.feature : 
+
+[source,gherkin]
+----
+Feature: Gestion d'une page de notes réservée aux professeurs
+
+  Scenario: Un utilisateur veut accéder à la page de notes
+    Given un tableau de bord
+    When l'utilisateur clique sur la page "notes" dans le tableau de bord
+    Then l'utilisateur accède à la page s'il est professeur et n'y accède pas s'il ne l'est pas
+----
+
+Contenu de l'implémentation des tests : 
+
+[source,java]
+----
+public class StepDefinitions {
+
+    private boolean isUserProfessor;
+    private boolean userAccessedPage;
+
+    @Given("un tableau de bord")
+    public void unTableauDeBord() {
+    }
+
+    @When("l'utilisateur clique sur la page {string} dans le tableau de bord")
+    public void utilisateurCliqueSurPageDansTableauDeBord(String page) {
+        if (page.equals("notes")) {
+            isUserProfessor = true; 
+        }
+    }
+
+    @Then("l'utilisateur accède à la page s'il est professeur et n'y accède pas s'il ne l'est pas")
+    public void utilisateurAccedeOuPasALaPage() {
+        if (isUserProfessor) {
+            userAccessedPage = true;
+        }
+        assertTrue(userAccessedPage); 
+    }
+}
+----
+
+Capture d'écran de l'exécution des tests avec succès : 
+
+image::https://github.com/IUT-Blagnac/r5-a-08-qualdev-nicolaspoda/blob/main/tp3_tests_qui_passent.png[]
+
+
+
+
 == TP4
 
 Lien vers la documentation cukedoctor des scénarios de "hellocucumber" : https://htmlpreview.github.io/?https://github.com/IUT-Blagnac/r5-a-08-qualdev-nicolaspoda/blob/main/documentation.html
